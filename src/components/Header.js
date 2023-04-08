@@ -1,14 +1,15 @@
 import React from 'react'
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header className="App-header">
-    <a className="logo" href="https://reactjs.org">Xeni's Blog</a>
-    <nav>
-      <a href='#'>Login</a>
-      <a href='#'>Register</a>
-    </nav>
+        <Link className="logo" to="/">Xeni's Blog</Link>
+        <nav>
+        <Link to='/login'>Login</Link>
+        <Link to='/register'>Register</Link>
+        </nav>
   </header>
   )
 }

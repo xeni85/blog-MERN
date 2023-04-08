@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: #333; 
 }
@@ -66,4 +70,35 @@ img {
 .App-entries .entry-summary {
   margin: 1em 0;
   line-height: 1.4rem;
+}
+
+form {
+  max-width: 40em;
+  margin: 0 auto;
+}
+
+input {
+  display: block;
+  margin-bottom: .5em;
+  width: 100%;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  border: o;
+  padding: 0.8em 0.6em;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  background-color: #555;
+  border-style: none;
+  border-radius: 5px;
+  padding: 1em;
+  color: #fff;
+
+}
+
+form h1 {
+  text-align: center;
 }
