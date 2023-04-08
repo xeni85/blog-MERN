@@ -1,0 +1,69 @@
+body {
+  color: #333; 
+}
+
+main {
+  padding: 0.5em;
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 2em 0;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header a.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  gap: 0.75em;
+}
+
+img {
+  max-width: 100%;
+}
+
+.App-entries {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 2em;
+  margin-bottom: 2.5em;
+}
+
+.App-entries .img-container {
+
+}
+
+.App-entries .img-text h2 {
+  margin: 0; 
+  font-size: 1.8em;
+}
+
+.App-entries .entry-info {
+  margin: 0.1em 0 ;
+  color: #888;
+  font-size: 0.7em;
+  font-weight: bold;
+  display: flex;
+  gap: 1em;
+}
+
+.App-entries .entry-info .entry-author {
+  color: #333;
+}
+
+.App-entries .entry-summary {
+  margin: 1em 0;
+  line-height: 1.4rem;
+}
