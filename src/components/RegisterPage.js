@@ -6,14 +6,14 @@ function RegisterPage() {
     const [password, setPassword] = useState('');
     const register = async (e) => {
         e.preventDefault();
-        await fetch('http://localhost:3001/register', {
+        const response = await fetch('http://localhost:3001/register', {
             method: 'POST',
             body: JSON.stringify({username, password}),
             headers: { 'Content-Type': 'application/json' },
         })
-    }
-
-  return (
+        response.ok? alert('Registered') : alert('Failed to register');
+    } 
+    return (
     <form className='register' onSubmit={register}>
         <h1>Register</h1>
     <input type="text" 
