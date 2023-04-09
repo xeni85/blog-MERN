@@ -1,17 +1,21 @@
 import '../App.css';
+import {format} from 'date-fns';
+import {Link} from 'react-router-dom';
 
-function Entry({title, summary, cover, content, createdAt}) {
+function Entry({title, summary, cover, content, createdAt, author}) {
   return (
     <div className="App-entries">
-      <div className="img-container"><img src='https://www.reuters.com/resizer/ktfqVk7hp4GPemOD063ZbU-sKkQ=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/SINBEWS2BZIFZPHAQEM44ABFVI.jpg' className="entry-img" alt="entry image" /></div>
+      <div className="img-container">
+        <Link to={`/post/${_id}`}> <img src={'http://localhost:3001/'+cover} alt="entry image" /></Link>
+        </div>
       <div className="img-text">
-        <h2>{title}</h2>
+        <Link to={'/post/id'}><h2>{title}</h2></Link>
         <p className='entry-info'>
           <a className='entry-author'>
-            Shkelzen Dunisha
+            {author.username}
           </a>
           <time className='entry-time'>
-            {createdAt}
+            {format(new Date(createdAt), 'MMMM d, yyyy HH:mm')}
           </time>
         </p>
         <p className='entry-summary'>{summary}</p>
