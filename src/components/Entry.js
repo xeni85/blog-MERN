@@ -3,8 +3,8 @@ import '../App.css';
 function Entry() {
   return (
     <div className="App-entries">
-      <div class="img-container"><img src='https://www.reuters.com/resizer/ktfqVk7hp4GPemOD063ZbU-sKkQ=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/SINBEWS2BZIFZPHAQEM44ABFVI.jpg' className="entry-img" alt="entry image" /></div>
-      <div class="img-text">
+      <div className="img-container"><img src='https://www.reuters.com/resizer/ktfqVk7hp4GPemOD063ZbU-sKkQ=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/SINBEWS2BZIFZPHAQEM44ABFVI.jpg' className="entry-img" alt="entry image" /></div>
+      <div className="img-text">
         <h2>25,000 cases in one week and a call to arms: Morgan & Morgan’s battle with insurers</h2>
         <p className='entry-info'>
           <a className='entry-author'>
