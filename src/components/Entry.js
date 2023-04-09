@@ -2,7 +2,7 @@ import '../App.css';
 import {format} from 'date-fns';
 import {Link} from 'react-router-dom';
 
-function Entry({title, summary, cover, content, createdAt, author}) {
+function Entry({_id, title, summary, cover, content, createdAt, author}) {
   return (
     <div className="App-entries">
       <div className="img-container">
