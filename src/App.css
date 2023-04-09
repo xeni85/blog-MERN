@@ -106,3 +106,24 @@ button {
 form.login h1, form.register h1 {
   text-align: center;
 }
+
+div.post-page div.image-container {
+  max-height: 20em;
+  display: flex;
+  overflow: hidden;
+}
+
+div.post-page div.image-container img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+div.post-page a {
+  cursor: pointer;
+  color: #333;
+  text-decoration: underline;
+}
+
+div.post-page h1 {
+  text-align: center;
+}

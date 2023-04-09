@@ -9,7 +9,7 @@ function Entry({_id, title, summary, cover, content, createdAt, author}) {
         <Link to={`/post/${_id}`}> <img src={'http://localhost:3001/'+cover} alt="entry image" /></Link>
         </div>
       <div className="img-text">
-        <Link to={'/post/id'}><h2>{title}</h2></Link>
+        <Link to={`/post/${_id}`}><h2>{title}</h2></Link>
         <p className='entry-info'>
           <a className='entry-author'>
             {author.username}
