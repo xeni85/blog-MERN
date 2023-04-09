@@ -22,23 +22,25 @@ function CreateEntry() {
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
-    const createNewEntry = (e) => {
+    const createNewEntry = async (e) => {
         const data = new FormData();
         data.set('title', title);
         data.set('summary', summary);
         data.set('content', content);
         data.set('file', files[0]);
         e.preventDefault();
-        fetch('http://localhost:3001/post', {
+        const response = await fetch('http://localhost:3001/post', {
             method: 'POST',
             body: data,
-            })
+            credentials: 'include',
+        })
+
     }
   return (
     <form onSubmit={createNewEntry}>
         <input type="title" name="title" placeholder={'Title'} onChange={e => setTitle(e.target.value)}/>
         <input type="summary" name="summary" placeholder={'Summary'} onChange={e => setSummary(e.target.value)}/>
-        <input type="files" name="files" placeholder="" onChange={e => setFiles(e.target.files)}/>
+        <input type="file" name="files" placeholder="" onChange={e => setFiles(e.target.files)}/>
         <ReactQuill value={content} modules={modules} formats={formats} onChange={newValue => setContent(newValue)}/>
         <button style={{marginTop: '.5em'}}>Create Entry</button>
     </form>
