@@ -1,10 +1,12 @@
-import React, {useEffect,  useState} from 'react'
-import { useParams } from 'react-router-dom';
+import React, {useContext, useEffect,  useState} from 'react'
+import { useParams, Link } from 'react-router-dom';
 import {formatISO9075} from 'date-fns';
+import { UserContext } from './UserContext';
 
 function EntryPage() {
     const {id} = useParams();
     const [postInfo, setPostInfo] = useState(null);
+    const {user} = useContext(UserContext)
     
     useEffect(() => {    
 
@@ -21,8 +23,13 @@ function EntryPage() {
         <h1>{postInfo.title}</h1>
         <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
         <div className='author-info'>by @{postInfo.author.username}</div>
+        {user.id === postInfo.author._id && (
+            <div className='edit-row'>
+                <Link className='edit-button' to={`/edit/${postInfo._id}`}>Edit</Link>
+            </div>
+        )}
         <div className="image-container"><img src={`http://localhost:3001/${postInfo.cover}`} alt={postInfo.title} /></div>
-        <div dangerouslySetInnerHTML={{__html: postInfo.content}}/>
+        <div classname="content" dangerouslySetInnerHTML={{__html: postInfo.content}}/>
     </div>
   )
 }
