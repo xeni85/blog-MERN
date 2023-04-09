@@ -20,7 +20,7 @@ function EntryPage() {
     <div className='post-page'>
         <h1>{postInfo.title}</h1>
         <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
-        <div className='author-info'>by {postInfo.author.username}</div>
+        <div className='author-info'>by @{postInfo.author.username}</div>
         <div className="image-container"><img src={`http://localhost:3001/${postInfo.cover}`} alt={postInfo.title} /></div>
         <div dangerouslySetInnerHTML={{__html: postInfo.content}}/>
     </div>

@@ -40,13 +40,15 @@ img {
 
 .App-entries {
   display: grid;
-  grid-template-columns: .8fr 1.2fr;
+  /* grid-template-columns: .8fr 1.2fr; */
   gap: 2em;
   margin-bottom: 2.5em;
 }
 
-.App-entries .img-container {
-
+@media screen and (min-width: 768px) {
+  div.App-entries {
+    grid-template-columns: .8fr 1.2fr;
+  }
 }
 
 .App-entries .img-text h2 {
@@ -126,4 +128,19 @@ div.post-page a {
 
 div.post-page h1 {
   text-align: center;
+  margin: .1em 0 .1em;
+}
+
+div.post-page time {
+  text-align: center;
+  display: block;
+  font-size: .8rem;
+  color: #aaa;
+}
+
+div.post-page div.author-info {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: .8rem;
+  font-weight: bold;
 }
