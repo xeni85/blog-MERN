@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ReactQuill from 'react-quill'
+import {useNavigate} from 'react-router-dom'
 import 'react-quill/dist/quill.snow.css'
+
 
 const modules = {
     toolbar: [
@@ -22,6 +24,8 @@ function CreateEntry() {
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
+    const [redirect, setRedirect] = useState(false);
+    const navigate = useNavigate();
     const createNewEntry = async (e) => {
         const data = new FormData();
         data.set('title', title);
@@ -35,7 +39,18 @@ function CreateEntry() {
             credentials: 'include',
         })
 
+        if(response.ok) {
+            response.json().then(() => {
+                setRedirect(true)
+            })
+
+        } else{
+                alert('Invalid username or password')
+            };
     }
+    useEffect (() => {
+        if (redirect) {navigate('/')};
+    }) 
   return (
     <form onSubmit={createNewEntry}>
         <input type="title" name="title" placeholder={'Title'} onChange={e => setTitle(e.target.value)}/>
