@@ -164,4 +164,11 @@ div.post-page a.edit-button {
   color: #fff;
   padding:.5em 1em;
   border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: .2em;
+}
+
+a svg {
+  height: 1em;
 }
