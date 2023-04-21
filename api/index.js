@@ -17,7 +17,7 @@ const fs = require('fs');
 
 mongoose.connect('mongodb+srv://blog:iKhakZzrCma2Cxy8@cluster0.9v7sweq.mongodb.net/?retryWrites=true&w=majority')
 
-app.use(cors({credentials: true, origin: 'http://localhost:3002'}));
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 app.use(express.json());
 
@@ -141,7 +141,7 @@ app.get('/post/:id', async (req, res) => {
 //
 //
 app.listen(PORT, () => {
-    'console.log(`Server is running on port ${PORT}`);})'
+    console.log(`Server is running on port ${PORT}`)
 }); 
 
 
