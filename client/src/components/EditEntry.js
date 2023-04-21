@@ -13,7 +13,7 @@ function EditEntry() {
     const navigate = useNavigate();
 
         useEffect(() => {
-            fetch('http://localhost:3001/post'+id)
+            fetch('http://localhost:3001/post/'+id)
               .then(response => {
                 response.json().then(postInfo => {
                   setTitle(postInfo.title);

@@ -119,8 +119,8 @@ app.put('/post',upload.single('file'), async (req,res) => {
         content,
         cover: newPath ? newPath : postDoc.cover,
       });
-  
-      res.json(id);
+      console.log(postDoc)
+      res.json(postDoc);
     });
   
   });
