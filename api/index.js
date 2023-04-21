@@ -105,7 +105,7 @@ app.put('/post',upload.single('file'), async (req,res) => {
     }
   
     const {token} = req.cookies;
-    jwt.verify(token, secret, {}, async (err,info) => {
+    jwt.verify(token, secret, {}, async(err,info) => {
       if (err) throw err;
       const {id,title,summary,content} = req.body;
       const postDoc = await Post.findById(id);
@@ -113,13 +113,13 @@ app.put('/post',upload.single('file'), async (req,res) => {
       if (!isAuthor) {
         return res.status(400).json('you are not the author');
       }
-      await postDoc.update({
+      const response = await postDoc.updateOne({
         title,
         summary,
         content,
         cover: newPath ? newPath : postDoc.cover,
       });
-      console.log(postDoc)
+      console.log('this is the response' + response)
       res.json(postDoc);
     });
   
