@@ -29,8 +29,6 @@ const NewsEntry = () => {
     if (query !== "") {
       fetchArticles();
     }
-
-    if (redirect) {navigate('/')};
   }, [query]);
 
   const handleInputChange = (event) => {
@@ -43,7 +41,6 @@ const NewsEntry = () => {
     setUrlToImg(index.urlToImage);
     console.log(urlToImg);
     createBlogArticle();
-
   };
 
   const createBlogArticle = async (event) => {

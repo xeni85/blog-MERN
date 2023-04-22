@@ -97,7 +97,8 @@ app.post('/post', upload.single('file'), async (req, res) => {
         const {token} = req.cookies;
         jwt.verify(token, secret, {}, async (err, decoded) => {
             if(err) throw err;
-            const {title, description, content, urlToImg } = req.body;  
+            const {title, description, content, urlToImg } = req.body;
+
             const postDoc = await News.create({ 
                 title,
                 description,
