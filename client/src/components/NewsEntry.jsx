@@ -11,6 +11,8 @@ const NewsEntry = () => {
         const response = await axios.get(
           `https://newsapi.org/v2/everything?q=${query}&apiKey=a4e31096c6114a67a4a3c36a0daefa1b`
         );
+
+        console.log(response.data.articles)
         setArticles(response.data.articles);
       } catch (error) {
         console.error(error);
@@ -26,6 +28,9 @@ const NewsEntry = () => {
     setQuery(event.target.value);
   };
 
+  const addArticle = (article) => {
+    const data = articles[indexOf(article)];
+  };
   return (
     <div>
       <h1>News Search</h1>
@@ -36,6 +41,7 @@ const NewsEntry = () => {
           <img src={article.urlToImage} alt={article.title} />
           <p>{article.description}</p>
           <p>{article.content}</p>
+          <button onClick={addArticle}>Add to Blog</button>
         </div>
       ))}
     </div>

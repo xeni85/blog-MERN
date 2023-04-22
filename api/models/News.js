@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema, model} = mongoose;
 
-const GuardianSchema = new mongoose.Schema({
+const NewsSchema = new mongoose.Schema({
     title: String,
     summary: String,
     content: String,
@@ -11,6 +11,6 @@ const GuardianSchema = new mongoose.Schema({
     timestamps: true,
 });
 
-const PostModel = model('Post', PostSchema);
+const NewsModel = model('News', NewsSchema);
 
-module.exports = PostModel;
+module.exports = NewsModel;
