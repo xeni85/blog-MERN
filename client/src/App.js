@@ -8,6 +8,7 @@ import { UserContextProvider } from './components/UserContext';
 import CreateEntry from './components/CreateEntry';
 import EntryPage from './components/EntryPage';
 import EditEntry from './components/EditEntry';
+import NewsEntry from './components/NewsEntry';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} /> 
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/create' element= {<CreateEntry />}/>
+        <Route path='/news' element= {<CreateEntry />}/>
         <Route path='/post/:id' element={<EntryPage />} />
         <Route path='/edit/:id' element={<EditEntry />} />
         </Route>

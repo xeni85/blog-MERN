@@ -27,6 +27,8 @@ function Header() {
                     <span> Hello {username}</span>
                     <Link to='/create'> Create new post </Link>
                     <a onClick={logout}>Logout</a>
+                    <Link to='/news'> Add news </Link>
+                    <a onClick={logout}>Logout</a>
                 </>
             )}
             { !username && (
