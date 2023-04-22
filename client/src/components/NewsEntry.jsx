@@ -44,7 +44,7 @@ const NewsEntry = () => {
     setUrlToImg(index.urlToImage);
     console.log(title);
     createBlogArticle();
-    newUrl = urlToImg.substring(1, urlToImg.length() - 1);
+    console.log(urlToImg + ' created');
   };
 
   const createBlogArticle = async (event) => {
