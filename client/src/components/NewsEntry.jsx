@@ -53,7 +53,7 @@ const NewsEntry = () => {
         data.set('title', title);
         data.set('description', description);
         data.set('content', content);
-        // data.set('urlToImg', newUrl);
+        data.set('urlToImg', urlToImg);
         const response = await fetch('http://localhost:3001/post', {
             method: 'POST',
             body: data,
