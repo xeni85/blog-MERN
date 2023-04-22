@@ -47,7 +47,7 @@ const NewsEntry = () => {
   };
 
   const createBlogArticle = async (event) => {
-
+        const newUrl = input.substring(1, input.length() - 1);
         const data = new FormData();
         data.set('title', title);
         data.set('desctiption', description);
