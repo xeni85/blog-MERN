@@ -48,7 +48,6 @@ const NewsEntry = () => {
   };
 
   const createBlogArticle = async (event) => {
-    console.log(urlToImg + ' created');
         const data = new FormData();
         data.set('title', title);
         data.set('description', description);
