@@ -102,7 +102,7 @@ app.post('/post', upload.single('file'), async (req, res) => {
                 title,
                 description,
                 content,
-                cover: urlToImg.substring(1, urlToImg.length() - 1),
+                cover: urlToImg,
                 author: decoded.id
             })
             console.log(req.body)

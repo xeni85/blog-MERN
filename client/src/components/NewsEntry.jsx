@@ -41,7 +41,7 @@ const NewsEntry = () => {
     setDescription(index.description);
     setContent(index.content);
     setUrlToImg(index.urlToImage);
-    console.log(title);
+    console.log(urlToImg);
     createBlogArticle();
 
   };
