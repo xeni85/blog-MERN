@@ -12,6 +12,7 @@ const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const Post = require('./models/Post');
+const News = require('./models/News');
 const fs = require('fs');
 
 
@@ -72,27 +73,44 @@ app.post('/logout', (req, res) => {
 })
 
 app.post('/post', upload.single('file'), async (req, res) => {
-    const { originalname, path } = req.file;
-    const parts = originalname.split('.');
-    const ext = parts[parts.length - 1];
-    const newPath = path + '.' + ext
-    fs.renameSync(path, newPath);
-
-    const {token} = req.cookies;
-    jwt.verify(token, secret, {}, async (err, decoded) => {
-        if(err) throw err;
-        const {title, summary, content } = req.body;
-        const postDoc = await Post.create({ 
-            title,
-            summary,
-            content,
-            cover: newPath,
-            author: decoded.id
-        })
+    if (req.body.formNumber === '1') {
+            const { originalname, path } = req.file;
+            const parts = originalname.split('.');
+            const ext = parts[parts.length - 1];
+            const newPath = path + '.' + ext
+            fs.renameSync(path, newPath);
         
-    res.json({postDoc});
+            const {token} = req.cookies;
+            jwt.verify(token, secret, {}, async (err, decoded) => {
+                if(err) throw err;
+                const {title, summary, content } = req.body;
+                const postDoc = await Post.create({ 
+                    title,
+                    summary,
+                    content,
+                    cover: newPath,
+                    author: decoded.id
+                })
+            res.json({postDoc});
+            })
+    } else {
+        const {token} = req.cookies;
+        jwt.verify(token, secret, {}, async (err, decoded) => {
+            if(err) throw err;
+            const {title, description, content, urlToImg } = req.body;
+            const postDoc = await News.create({ 
+                title,
+                description,
+                content,
+                cover: urlToImg,
+                author: decoded.id
+            })
+            console.log(req.body)
+        res.json({postDoc});
     })
+    }
 })
+
 
 app.put('/post',upload.single('file'), async (req,res) => {
     let newPath = null;
@@ -132,6 +150,7 @@ app.get('/post', async (req, res) => {
     .limit(10)
     res.json(posts);
 })
+
 
 app.get('/post/:id', async (req, res) => {
     const {id} = req.params;

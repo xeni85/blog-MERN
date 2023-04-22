@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NewsEntry = () => {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [content, setContent] = useState('');
+  const [urlToImg, setUrlToImg] = useState('');
+  const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -22,6 +29,8 @@ const NewsEntry = () => {
     if (query !== "") {
       fetchArticles();
     }
+
+    if (redirect) {navigate('/')};
   }, [query]);
 
   const handleInputChange = (event) => {
@@ -29,8 +38,37 @@ const NewsEntry = () => {
   };
 
   const addArticle = (event, index) => {
-    console.log(index);
+    setTitle(index.title);
+    setDescription(index.description);
+    setContent(index.content);
+    setUrlToImg(index.urlToImage);
+    console.log(title);
+    createBlogArticle();
   };
+
+  const createBlogArticle = async (event) => {
+        
+        const data = new FormData();
+        data.set('title', title);
+        data.set('desctiption', description);
+        data.set('content', content);
+        data.set('urlToImg', urlToImg);
+        const response = await fetch('http://localhost:3001/post', {
+            method: 'POST',
+            body: data,
+            credentials: 'include',
+        })
+
+        if(response.ok) {
+            response.json().then(() => {
+                setRedirect(true)
+            })
+
+        } else{
+                alert('Invalid username or password')
+            };
+        }
+
   return (
     <div>
       <h1>News Search</h1>

@@ -32,6 +32,7 @@ function CreateEntry() {
         data.set('summary', summary);
         data.set('content', content);
         data.set('file', files[0]);
+        data.set('formNumber', 1);
         e.preventDefault();
         const response = await fetch('http://localhost:3001/post', {
             method: 'POST',
