@@ -42,4 +42,6 @@ const NewsEntry = () => {
   );
 };
 
+//api is now working
+
 export default NewsEntry;
