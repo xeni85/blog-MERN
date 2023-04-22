@@ -47,12 +47,13 @@ const NewsEntry = () => {
   };
 
   const createBlogArticle = async (event) => {
-
+    console.log(urlToImg + ' created');
+        // const newUrl = urlToImg.substring(1, urlToImg.length() - 1);
         const data = new FormData();
         data.set('title', title);
-        data.set('desctiption', description);
+        data.set('description', description);
         data.set('content', content);
-        data.set('urlToImg', urlToImg);
+        // data.set('urlToImg', newUrl);
         const response = await fetch('http://localhost:3001/post', {
             method: 'POST',
             body: data,
