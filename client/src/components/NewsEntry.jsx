@@ -28,8 +28,8 @@ const NewsEntry = () => {
     setQuery(event.target.value);
   };
 
-  const addArticle = (article) => {
-    const data = articles[indexOf(article)];
+  const addArticle = (event, index) => {
+    console.log(index);
   };
   return (
     <div>
@@ -41,7 +41,7 @@ const NewsEntry = () => {
           <img src={article.urlToImage} alt={article.title} />
           <p>{article.description}</p>
           <p>{article.content}</p>
-          <button onClick={addArticle}>Add to Blog</button>
+          <button onClick={(e => addArticle(e, article))}>Add to Blog</button>
         </div>
       ))}
     </div>
