@@ -36,7 +36,6 @@ const NewsEntry = () => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
-  const newUrl = '';
   const addArticle = (event, index) => {
     setTitle(index.title);
     setDescription(index.description);
