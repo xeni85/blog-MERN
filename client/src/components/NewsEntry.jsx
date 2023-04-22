@@ -36,7 +36,7 @@ const NewsEntry = () => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
-
+  const newUrl = '';
   const addArticle = (event, index) => {
     setTitle(index.title);
     setDescription(index.description);
@@ -44,11 +44,11 @@ const NewsEntry = () => {
     setUrlToImg(index.urlToImage);
     console.log(title);
     createBlogArticle();
+    newUrl = urlToImg.substring(1, urlToImg.length() - 1);
   };
 
   const createBlogArticle = async (event) => {
     console.log(urlToImg + ' created');
-        // const newUrl = urlToImg.substring(1, urlToImg.length() - 1);
         const data = new FormData();
         data.set('title', title);
         data.set('description', description);
