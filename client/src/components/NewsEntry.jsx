@@ -39,11 +39,11 @@ const NewsEntry = () => {
     setDescription(index.description);
     setContent(index.content);
     setUrlToImg(index.urlToImage);
-    console.log(urlToImg);
     createBlogArticle();
   };
 
-  const createBlogArticle = async (event) => {
+
+    const createBlogArticle = async (event) => {
         const data = new FormData();
         data.set('title', title);
         data.set('description', description);
@@ -64,6 +64,10 @@ const NewsEntry = () => {
                 alert('Invalid username or password')
             };
         }
+
+    useEffect(() => {
+        if (redirect) {navigate('/')};
+    },[])
 
   return (
     <div>
