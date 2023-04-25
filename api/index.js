@@ -106,7 +106,6 @@ app.post('/post', upload.single('file'), async (req, res) => {
                 cover: urlToImg,
                 author: decoded.id
             })
-            console.log(req.body)
         res.json({postDoc});
     })
     }
@@ -138,17 +137,25 @@ app.put('/post',upload.single('file'), async (req,res) => {
         content,
         cover: newPath ? newPath : postDoc.cover,
       });
-      console.log('this is the response' + response)
       res.json(postDoc);
     });
   
   });
 
 app.get('/post', async (req, res) => {
-    const posts = await Post.find()
+    const userPosts = await Post.find()
     .populate('author', ['username'])
     .sort({createdAt: -1})
-    .limit(10)
+    .limit(5)
+
+    const userNews = await News.find()
+    .populate('author', ['username'])
+    .sort({createdAt: -1})
+    .limit(5)
+
+    const posts = [...userPosts, ...userNews]
+    // posts = posts.sort({createdAt: -1})
+    console.log(posts)
     res.json(posts);
 })
 

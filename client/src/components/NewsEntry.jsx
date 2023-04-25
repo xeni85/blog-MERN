@@ -44,30 +44,32 @@ const NewsEntry = () => {
 
 
     const createBlogArticle = async (event) => {
-        const data = new FormData();
-        data.set('title', title);
-        data.set('description', description);
-        data.set('content', content);
-        data.set('urlToImg', urlToImg);
-        const response = await fetch('http://localhost:3001/post', {
-            method: 'POST',
-            body: data,
-            credentials: 'include',
-        })
-
-        if(response.ok) {
-            response.json().then(() => {
-                setRedirect(true)
-            })
-
-        } else{
-                alert('Invalid username or password')
-            };
+        if (title) {
+          const data = new FormData();
+          data.set('title', title);
+          data.set('description', description);
+          data.set('content', content);
+          data.set('urlToImg', urlToImg);
+          const response = await fetch('http://localhost:3001/post', {
+              method: 'POST',
+              body: data,
+              credentials: 'include',
+          })
+  
+          if(response.ok) {
+              response.json().then(() => {
+                  setRedirect(true)
+              })
+  
+          } else{
+                  alert('Invalid username or password')
+              };
+        } else {alert('wait a bit more, or try again with another article')}
         }
 
-    useEffect(() => {
+
         if (redirect) {navigate('/')};
-    },[])
+
 
   return (
     <div>
